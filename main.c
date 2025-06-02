@@ -2,9 +2,10 @@
 
 int main()
 {
-    char maze[15][32] = {
+    // učitavanje prvog sloja labirinta
+    char labirintSloj1[15][32] = {
         "#############################",
-        "        #   #               #",
+        "E        #   #              #",
         "#   # # #   # # #   # # #   #",
         "#                   #       #",
         "#   #   ##### # # # # # #   #",
@@ -17,12 +18,36 @@ int main()
         "#       #   #   #       #   #",
         "#    ## # # #   #   # # #   #",
         "#                            ",
-        "##################<#########>"};
+        "############################>"};
 
+    // učitavanje drugog sloja labirinta
+    char labirintSloj2[15][32] = {
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                             ",
+        "                           P#",
+        "                             "};
+
+    // Ispis oba sloja jedan na drugom
     for (int i = 0; i < 15; i++)
     {
-        printf("%s\n", maze[i]);
+        for (int j = 0; j < 31; j++)
+        {
+            if (labirintSloj2[i][j] != ' ')
+                putchar(labirintSloj2[i][j]);
+            else
+                putchar(labirintSloj1[i][j]);
+        }
+        putchar('\n');
     }
-
-    return 0;
 }
